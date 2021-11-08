@@ -7,7 +7,7 @@ type Props = {
   style?: React.CSSProperties;
   totalStars?: number;
   selectedStars: number;
-  onStarClick: (id: string, rating: number) => void;
+  onStarClick: (id: string, newRating: number) => void;
 };
 
 const StarRating: React.VFC<Props> = ({
