@@ -1,3 +1,5 @@
+O'reilly React ハンズオンラーニング 第二版で勉強した際に書いたソースコード
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
