@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { v4 } from 'uuid';
 
 import colorData from './data/color-data.json';
 
+import AddColorFormRef from './component/AddColorFormRef';
+import AddColorForm from './component/AddColorForm';
 import ColorList from './component/ColorList';
 import RatingColorList from './component/rating-only/ColorList';
 
@@ -20,6 +23,8 @@ const Chapter6: React.VFC = () => {
   const onRemoveColor = (id: string) =>
     setColors(colors.filter((color) => color.id !== id));
 
+  const onNewColor = (title: string, color: string) =>
+    setColors([...colors, { id: v4(), rating: 0, title, color }]);
   useEffect(() => {
     const defaultRatings: { [key: string]: number } = {};
     colorData.forEach((color) => (defaultRatings[color.id] = color.rating));
@@ -35,6 +40,7 @@ const Chapter6: React.VFC = () => {
   return (
     <>
       <h1>Chapter 6</h1>
+      <AddColorForm onNewColor={onNewColor} />
       <ColorList
         colors={colors}
         onStarClick={onStarClick}
@@ -46,6 +52,8 @@ const Chapter6: React.VFC = () => {
         ratings={ratings}
         onStarClick={onStarClickForRatingOnly}
       />
+      <h2>useRef</h2>
+      <AddColorFormRef onNewColor={onNewColor} />
     </>
   );
 };
