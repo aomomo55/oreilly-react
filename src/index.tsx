@@ -1,14 +1,18 @@
+// eslint-disable-next-line
+// @ts-ignore TS6133: 'react' is declared but its value is never read.
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import ColorProvider from './cp06/hooks/color-hooks';
+
 ReactDOM.render(
-  <React.StrictMode>
+  <ColorProvider>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </ColorProvider>,
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function

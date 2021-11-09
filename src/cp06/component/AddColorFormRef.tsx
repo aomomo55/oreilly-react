@@ -1,17 +1,15 @@
 import React, { useRef } from 'react';
+import { useColors } from '../hooks/color-hooks';
 
-type Props = {
-  onNewColor: (title: string, color: string) => void;
-};
-
-const AddColorFormRef: React.VFC<Props> = ({ onNewColor }: Props) => {
+const AddColorFormRef: React.VFC = () => {
   const titleRef = useRef<HTMLInputElement>(null);
   const colorRef = useRef<HTMLInputElement>(null);
+  const { addColor } = useColors();
 
   const onClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     if (!titleRef.current || !colorRef.current) return;
-    onNewColor(titleRef.current.value, colorRef.current.value);
+    addColor(titleRef.current.value, colorRef.current.value);
     titleRef.current.value = '';
     colorRef.current.value = '';
   };

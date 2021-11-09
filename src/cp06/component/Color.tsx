@@ -2,22 +2,17 @@ import React from 'react';
 import { FaTrash } from 'react-icons/fa';
 
 import { ColorData } from '../type/interface';
+import { useColors } from '../hooks/color-hooks';
 
 import StarRating from './StarRating';
 
-type Props = ColorData & {
-  onStarClick: (id: string, rating: number) => void;
-  onRemoveColor: () => void;
-};
-
-const Color: React.VFC<Props> = ({
+const Color: React.VFC<ColorData> = ({
   id,
   title,
   color,
   rating,
-  onStarClick,
-  onRemoveColor,
-}: Props) => {
+}: ColorData) => {
+  const { removeColor } = useColors();
   const style: React.CSSProperties = {
     height: 50,
     backgroundColor: color,
@@ -26,11 +21,11 @@ const Color: React.VFC<Props> = ({
   return (
     <section>
       <h1>{title}</h1>
-      <button onClick={onRemoveColor}>
+      <button onClick={() => removeColor(id)}>
         <FaTrash />
       </button>
       <div style={style} />
-      <StarRating id={id} selectedStars={rating} onStarClick={onStarClick} />
+      <StarRating id={id} selectedStars={rating} />
     </section>
   );
 };

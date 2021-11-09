@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useColors } from '../hooks/color-hooks';
 import Star from './Star';
 
 type Props = {
@@ -7,7 +8,6 @@ type Props = {
   style?: React.CSSProperties;
   totalStars?: number;
   selectedStars: number;
-  onStarClick: (id: string, rating: number) => void;
 };
 
 const StarRating: React.VFC<Props> = ({
@@ -15,15 +15,15 @@ const StarRating: React.VFC<Props> = ({
   style,
   totalStars = 5,
   selectedStars,
-  onStarClick,
 }: Props) => {
+  const { updateRate } = useColors();
   return (
     <div style={{ padding: '5px', ...style }}>
       {[...Array(totalStars)].map((_, idx) => (
         <Star
           key={`star-${idx}`}
           selected={selectedStars > idx}
-          onClick={() => onStarClick(id, idx + 1)}
+          onClick={() => updateRate(id, idx + 1)}
         />
       ))}
       <p>
