@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import TableOfContent from './TOC/TableOfContent';
+import TableOfContent from './toc/TableOfContent';
 
 import Menu from './cp05/component/Menu';
 import Chapter6 from './cp06/Chapter6';
