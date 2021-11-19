@@ -6,7 +6,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import ColorProvider from './cp06/hooks/color-hooks';
+import ColorProvider from './component/cp06/hooks/color-hooks';
 
 ReactDOM.render(
   <ColorProvider>

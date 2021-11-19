@@ -1,4 +1,4 @@
 export interface TableOfContent {
-  id: string;
+  id: number;
   text: string;
 }
