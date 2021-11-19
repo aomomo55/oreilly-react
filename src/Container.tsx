@@ -15,7 +15,7 @@ const Container: React.VFC = () => {
     margin: '1rem auto',
   };
   const contentBox: React.CSSProperties = {
-    maxHeight: `calc(100vh - (3rem + 1.15rem * ${table.length}))`,
+    maxHeight: `calc(100vh - (3rem + 1.55rem * ${table.length}))`,
     overflow: 'auto',
   };
 
