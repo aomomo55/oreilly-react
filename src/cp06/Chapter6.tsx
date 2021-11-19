@@ -24,7 +24,7 @@ const Chapter6: React.VFC = () => {
 
   return (
     <>
-      <h1>Chapter 6</h1>
+      <h1 id="Chapter06">Chapter 6</h1>
       <AddColorForm />
       <ColorList />
       <h2>Rating change only</h2>
