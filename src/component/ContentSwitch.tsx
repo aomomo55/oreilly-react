@@ -1,4 +1,5 @@
 import React from 'react';
+import { css } from '@emotion/react';
 
 import table from '../data/contents.json';
 
@@ -7,17 +8,19 @@ type Props = {
 };
 
 const ContentSwitch: React.VFC<Props> = ({ onTextClick }: Props) => {
-  const li: React.CSSProperties = {
+  const li = css({
     marginTop: '0.4rem',
     cursor: 'pointer',
-    textDecoration: 'underline',
-    color: 'HighlightText',
-  };
+    color: 'darkorange',
+    ':hover': {
+      textDecoration: 'underline',
+    },
+  });
 
   return (
     <ul>
       {table.map(({ id, text }, idx) => (
-        <li key={`contents-${idx}`} style={li}>
+        <li key={`contents-${idx}`} css={li}>
           <a onClick={() => onTextClick(id)}>{text}</a>
         </li>
       ))}

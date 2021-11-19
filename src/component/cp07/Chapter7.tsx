@@ -2,6 +2,7 @@ import React from 'react';
 
 import Checkbox from './component/Checkbox';
 import Phrase from './component/Phrase';
+import WordCount from './component/WordCount';
 
 const Chapter7: React.VFC = () => (
   <>
@@ -9,6 +10,8 @@ const Chapter7: React.VFC = () => (
     <Checkbox />
     <hr />
     <Phrase />
+    <hr />
+    <WordCount>Yout are not going to believe this but...</WordCount>
   </>
 );
 
