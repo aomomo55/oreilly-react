@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useReducer } from 'react';
 
 const Checkbox: React.VFC = () => {
-  const [checked, setChecked] = useState(false);
-
-  useEffect(() => {
-    console.log(`checked: ${checked.toString()}`);
-  }, [checked]);
+  const [checked, toggle] = useReducer((checked) => !checked, false);
 
   return (
     <>
-      <input
-        type="checkbox"
-        value={checked.toString()}
-        onChange={() => setChecked((checked) => !checked)}
-      />
+      <input type="checkbox" value={checked.toString()} onChange={toggle} />
       {checked ? 'checked' : 'not checked'}
     </>
   );
