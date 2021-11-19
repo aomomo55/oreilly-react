@@ -1,9 +1,12 @@
 import React from 'react';
-import Menu from './component/cp05/component/Menu';
+
+import { useContentSwitch } from './hooks/useContentSwitch';
+import table from './data/contents.json';
+
+import Menu from './component/cp05/Menu';
 import Chapter6 from './component/cp06/Chapter6';
 import Chapter7 from './component/cp07/Chapter7';
-import ContentSwitch from './component/toc/ContentSwitch';
-import { useContentSwitch } from './hooks/useContentSwitch';
+import ContentSwitch from './component/ContentSwitch';
 
 const Container: React.VFC = () => {
   const style: React.CSSProperties = {
@@ -12,7 +15,7 @@ const Container: React.VFC = () => {
     margin: '1rem auto',
   };
   const contentBox: React.CSSProperties = {
-    maxHeight: 'calc(100vh - (3rem + 1.15rem * 3))',
+    maxHeight: `calc(100vh - (3rem + 1.15rem * ${table.length}))`,
     overflow: 'auto',
   };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import table from './data/toc.json';
+import table from '../data/contents.json';
 
 type Props = {
   onTextClick: (id: number) => void;
@@ -9,7 +9,7 @@ type Props = {
 const ContentSwitch: React.VFC<Props> = ({ onTextClick }: Props) => (
   <ul>
     {table.map(({ id, text }, idx) => (
-      <li key={`TOC-${idx}`}>
+      <li key={`contents-${idx}`}>
         <a onClick={() => onTextClick(id)}>{text}</a>
       </li>
     ))}

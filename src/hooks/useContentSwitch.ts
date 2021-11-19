@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-export const useContentSwitch: () => [
+type useContentSwitch = () => [
   number,
   React.Dispatch<React.SetStateAction<number>>,
-] = () => {
+];
+
+export const useContentSwitch: useContentSwitch = () => {
   const defaultContent = sessionStorage.getItem('content-id');
   const [contentId, setContentId] = useState(
     defaultContent ? Number(defaultContent) : 5,

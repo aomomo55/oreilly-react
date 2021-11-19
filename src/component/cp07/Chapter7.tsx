@@ -5,7 +5,7 @@ import Phrase from './component/Phrase';
 
 const Chapter7: React.VFC = () => (
   <>
-    <h2 id="Chapter07">Chapter 7</h2>
+    <h1 id="Chapter07">Chapter 7</h1>
     <Checkbox />
     <hr />
     <Phrase />

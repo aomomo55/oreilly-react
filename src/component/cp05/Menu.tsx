@@ -1,8 +1,8 @@
 import React from 'react';
 
-import recipes from '../data/recipes.json';
+import recipes from './data/recipes.json';
 
-import Recipe from './Recipe';
+import Recipe from './component/Recipe';
 
 type Props = {
   title: string;
