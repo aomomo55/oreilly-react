@@ -7,6 +7,7 @@ import Menu from './component/cp05/Menu';
 import Chapter6 from './component/cp06/Chapter6';
 import Chapter7 from './component/cp07/Chapter7';
 import ContentSwitch from './component/ContentSwitch';
+import Chapter8 from './component/cp08/Chapter8';
 
 const Container: React.VFC = () => {
   const style: React.CSSProperties = {
@@ -31,6 +32,8 @@ const Container: React.VFC = () => {
           <Chapter6 />
         ) : contentId == 7 ? (
           <Chapter7 />
+        ) : contentId == 8 ? (
+          <Chapter8 />
         ) : (
           ''
         )}
