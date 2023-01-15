@@ -1,14 +1,14 @@
 import { Dispatch, RefObject, SetStateAction, useCallback, useRef, useState } from 'react';
 
 type useGitFetchService = {
-  accountInformation: string;
+  userInformation: string;
   loginNameRef: RefObject<HTMLInputElement>;
-  setAccountInformation: Dispatch<SetStateAction<string>>;
+  setUserInformation: Dispatch<SetStateAction<string>>;
   handleOnGetUserInformationClick: () => Promise<void>;
 };
 
 export const useGitFetchService: () => useGitFetchService = () => {
-  const [accountInformation, setAccountInformation] = useState('');
+  const [userInformation, setUserInformation] = useState('');
   const loginNameRef = useRef<HTMLInputElement>(null);
 
   const getGitUserInformation = useCallback(async (loginName: string) => {
@@ -24,18 +24,18 @@ export const useGitFetchService: () => useGitFetchService = () => {
 
   const handleOnGetUserInformationClick = useCallback(async () => {
     if (!loginNameRef.current) {
-      setAccountInformation('loginNameRef is Null!!');
+      setUserInformation('loginNameRef is Null!!');
     }
     const result = await getGitUserInformation(
       loginNameRef.current?.value as string,
     );
-    setAccountInformation(result);
-  }, [setAccountInformation]);
+    setUserInformation(result);
+  }, [setUserInformation]);
 
   return {
-    accountInformation,
+    userInformation,
     loginNameRef,
-    setAccountInformation,
+    setUserInformation,
     handleOnGetUserInformationClick,
   };
 };

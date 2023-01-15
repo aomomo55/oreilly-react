@@ -21,7 +21,7 @@ const GitAccount: React.VFC = () => {
       </label>
       <button onClick={service.handleOnGetUserInformationClick}>Get</button>
       <h3>Result</h3>
-      <p style={style.result}>{service.accountInformation}</p>
+      <p style={style.result}>{service.userInformation}</p>
     </>
   );
 };
