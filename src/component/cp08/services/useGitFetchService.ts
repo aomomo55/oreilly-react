@@ -9,6 +9,7 @@ type useGitFetchService = {
 
 export const useGitFetchService: () => useGitFetchService = () => {
   const [userInformation, setUserInformation] = useState('');
+  const [userInformationFromLocalStorage, setUserInformationFromLocalStorage] = useState('')
   const loginNameRef = useRef<HTMLInputElement>(null);
 
   const getGitUserInformation = useCallback(async (loginName: string) => {
@@ -32,10 +33,21 @@ export const useGitFetchService: () => useGitFetchService = () => {
     setUserInformation(result);
   }, [setUserInformation]);
 
+  const handleSaveToLocalStorage = useCallback(() => {
+    localStorage.setItem('GithubUserInformation', userInformation)
+  }, [userInformation])
+
+  const loadFromLocalStorage = useCallback(() => {
+    setUserInformationFromLocalStorage(localStorage.getItem('GithubUserInformation') || '')
+  }, [])
+
   return {
     userInformation,
+    userInformationFromLocalStorage,
     loginNameRef,
     setUserInformation,
     handleOnGetUserInformationClick,
+    handleSaveToLocalStorage,
+    loadFromLocalStorage
   };
 };
